@@ -1,0 +1,31 @@
+Console.WriteLine("Please enter userId in numbers");
+
+uint userId =uint.Parse(Console.ReadLine());
+bool userIsAdmin;
+if (userId < 65536)
+    userIsAdmin = false;
+else userIsAdmin = true;
+Console.WriteLine($"Admin: {userIsAdmin}");
+
+Console.WriteLine("Please enter username");
+var username = Console.ReadLine();
+Console.WriteLine("Please enter password");
+var password = Console.ReadLine();
+
+bool userlength = username.Length > 3;
+
+if (userlength==false)
+    Console.WriteLine("Username is too short");
+
+bool Special = password.Contains("$") || password.Contains("@") || password.Contains("|");
+if (Special == false)
+    Console.WriteLine("Password needs to contain @, $ or |");
+int rl = userIsAdmin ? 20 : 16;
+bool pvalid = password.Length >= rl && Special == true;
+if (pvalid == false)
+    Console.WriteLine("Password is too short");
+
+else if (userlength == true && pvalid == true)
+    Console.WriteLine("Access granted");
+
+return;
