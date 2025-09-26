@@ -1,5 +1,3 @@
-using System.Linq;
-
 Console.WriteLine("Please enter userId in numbers");
 
 uint userId =uint.Parse(Console.ReadLine());
@@ -30,7 +28,7 @@ while (!sl.Any(s => password.Contains(s)))
 
 int rl = userIsAdmin ? 20 : 16;
 
-while (password.Length!>=rl)
+while (password.Length!<=rl)
 {
     Console.WriteLine($"Password needs to be at least {rl} characters long");
     password = Console.ReadLine();
